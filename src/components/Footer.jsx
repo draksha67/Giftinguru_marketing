@@ -1,10 +1,31 @@
 import { Gift, MapPin, Phone, Mail, Instagram, Facebook, Youtube, Heart } from 'lucide-react'
 import logo2 from '../assets/logo2.png'
+import { Link } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
-const quickLinks = ['Home', 'About','Decorations', 'Visit Our Stores', 'Testimonials']
+const quickLinks = ['Home', 'About', 'Decorations', 'Visit Our Stores', 'Testimonials', 'Privacy Policy', 'Terms & Conditions']
 const categories = ['Toys & Collectibles', 'Decorative Gifts', 'Religious Statues', 'Keychains', 'Occasion Gifts', 'Unique Gifts']
 
 export default function Footer() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleScroll = (id) => {
+    if (location.pathname === "/") {
+      const el = document.getElementById(id);
+
+      if (el) {
+        const yOffset = -80;
+        const y =
+          el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    } else {
+      navigate("/", { state: { scrollTo: id } });
+    }
+  };
+
   return (
     <footer className="bg-gray-950 text-gray-300">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-16 pb-8">
@@ -58,9 +79,22 @@ export default function Footer() {
             <ul className="space-y-3">
               {quickLinks.map(link => (
                 <li key={link}>
-                  <a href={`#${link.toLowerCase()}`} className="text-sm text-gray-400 hover:text-orange-400 transition-colors">
-                    {link}
-                  </a>
+                  {link === "Privacy Policy" ? (
+                    <Link to="/privacy-policy" className="text-sm text-gray-400 hover:text-orange-400">
+                      {link}
+                    </Link>
+                  ) : link === "Terms & Conditions" ? (
+                    <Link to="/terms-conditions" className="text-sm text-gray-400 hover:text-orange-400">
+                      {link}
+                    </Link>
+                  ) : (
+                    <button
+                      onClick={() => handleScroll(link.toLowerCase().replace(/\s+/g, "-"))}
+                      className="text-sm text-gray-400 hover:text-orange-400 text-left"
+                    >
+                      {link}
+                    </button>
+                  )}
                 </li>
               ))}
             </ul>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const gallery = {
     birthday: [
@@ -28,18 +28,24 @@ const gallery = {
 };
 
 const CATEGORIES = [
-    { key: "birthday",    emoji: "🎂", label: "Most Popular", title: "Birthday Decorations", bg: "#FFF4EC", accent: "#f97316" },
-    { key: "anniversary", emoji: "💕", label: "Romantic",     title: "Anniversary Decor",    bg: "#FFF0F5", accent: "#ec4899" },
-    { key: "function",    emoji: "🎉", label: "Wedding",      title: "Function Decor",        bg: "#FFFBEC", accent: "#eab308" },
-    { key: "custom",      emoji: "✨", label: "Premium",      title: "Custom Event Setup",    bg: "#F4FFF4", accent: "#22c55e" },
+    { key: "birthday", emoji: "🎂", label: "Most Popular", title: "Birthday Decorations", bg: "#FFF4EC", accent: "#f97316" },
+    { key: "anniversary", emoji: "💕", label: "Romantic", title: "Anniversary Decor", bg: "#FFF0F5", accent: "#ec4899" },
+    { key: "function", emoji: "🎉", label: "Wedding", title: "Function Decor", bg: "#FFFBEC", accent: "#eab308" },
+    { key: "custom", emoji: "✨", label: "Premium", title: "Custom Event Setup", bg: "#F4FFF4", accent: "#22c55e" },
 ];
 
-export default function GiftinGuruDecorations() {
-    const [selected, setSelected]       = useState("birthday");
-    const [lightbox, setLightbox]       = useState(null);
+export default function GiftinGuruDecorations({ openFromNavbar }) {
+    const [selected, setSelected] = useState("birthday");
+    const [lightbox, setLightbox] = useState(null);
     const [showContact, setShowContact] = useState(false);
 
-    const activeCat    = CATEGORIES.find(c => c.key === selected);
+    useEffect(() => {
+        if (openFromNavbar) {
+            setShowContact(true)
+        }
+    }, [openFromNavbar])
+
+    const activeCat = CATEGORIES.find(c => c.key === selected);
     const activePhotos = gallery[selected] || [];
 
     return (

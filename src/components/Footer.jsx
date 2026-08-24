@@ -73,45 +73,67 @@ export default function Footer() {
             <p className="text-sm text-gray-400">Follow us</p>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-5">Quick Links</h4>
-            <ul className="space-y-3">
-              {quickLinks.map(link => (
-                <li key={link}>
-                  {link === "Privacy Policy" ? (
-                    <Link to="/privacy-policy" className="text-sm text-gray-400 hover:text-orange-400">
-                      {link}
-                    </Link>
-                  ) : link === "Terms & Conditions" ? (
-                    <Link to="/terms-conditions" className="text-sm text-gray-400 hover:text-orange-400">
-                      {link}
-                    </Link>
-                  ) : (
-                    <button
-                      onClick={() => handleScroll(link.toLowerCase().replace(/\s+/g, "-"))}
-                      className="text-sm text-gray-400 hover:text-orange-400 text-left"
-                    >
-                      {link}
-                    </button>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Quick Links + Categories */}
+          <div className="grid grid-cols-2 gap-6 md:contents">
 
-          {/* Categories */}
-          <div>
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-5">Categories</h4>
-            <ul className="space-y-3">
-              {categories.map(cat => (
-                <li key={cat}>
-                  <a href="#offerings" className="text-sm text-gray-400 hover:text-orange-400 transition-colors">
-                    {cat}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            {/* Quick Links */}
+            <div>
+              <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-5">
+                Quick Links
+              </h4>
+
+              <ul className="space-y-3">
+                {quickLinks.map(link => (
+                  <li key={link}>
+                    {link === "Privacy Policy" ? (
+                      <Link
+                        to="/privacy-policy"
+                        className="text-sm text-gray-400 hover:text-orange-400"
+                      >
+                        {link}
+                      </Link>
+                    ) : link === "Terms & Conditions" ? (
+                      <Link
+                        to="/terms-conditions"
+                        className="text-sm text-gray-400 hover:text-orange-400"
+                      >
+                        {link}
+                      </Link>
+                    ) : (
+                      <button
+                        onClick={() =>
+                          handleScroll(link.toLowerCase().replace(/\s+/g, "-"))
+                        }
+                        className="text-sm text-gray-400 hover:text-orange-400 text-left"
+                      >
+                        {link}
+                      </button>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Categories */}
+            <div>
+              <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-5">
+                Categories
+              </h4>
+
+              <ul className="space-y-3">
+                {categories.map(cat => (
+                  <li key={cat}>
+                    <a
+                      href="#offerings"
+                      className="text-sm text-gray-400 hover:text-orange-400 transition-colors"
+                    >
+                      {cat}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
           </div>
 
           {/* Contact */}

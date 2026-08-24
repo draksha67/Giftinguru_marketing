@@ -38,7 +38,7 @@ export default function Navbar({ openServices }) {
         {/* Logo */}
         <button
           onClick={() => navigate("/")}
-          className="flex items-center gap-2.5 group"
+          className="flex items-center gap-2.5 group cursor-pointer"
         >
           <img
             src={logo2}
@@ -53,7 +53,7 @@ export default function Navbar({ openServices }) {
             <button
               key={link}
               onClick={() => handleScroll(link.toLowerCase().replace(/\s+/g, "-"))}
-              className="text-sm font-medium text-gray-600 hover:text-orange-500 transition-colors duration-200 relative group"
+              className="text-sm font-medium text-gray-600 hover:text-orange-500 transition-colors duration-200 relative group cursor-pointer"
             >
               {link}
               <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300 rounded-full" />
@@ -62,20 +62,12 @@ export default function Navbar({ openServices }) {
         </div>
 
         {/* CTA */}
-        <div className="hidden md:flex items-center gap-3">
-          <button
-            onClick={() => {
-              if (location.pathname === "/") {
-                openServices();
-              } else {
-                navigate("/", { state: { openService: true } });
-              }
-            }}
-            className="px-5 py-2.5 text-sm font-semibold bg-orange-500 text-white rounded-xl hover:bg-orange-600 transition-all duration-200 shadow-md shadow-orange-200 hover:shadow-orange-300 hover:-translate-y-0.5"
-          >
-            Book Decor Services
-          </button>
-        </div>
+        <button
+          onClick={openServices}
+          className="hidden md:inline-flex px-5 py-2.5 text-sm font-semibold bg-orange-500 text-white rounded-xl hover:bg-orange-600 transition-all duration-200 shadow-md shadow-orange-200 hover:shadow-orange-300 hover:-translate-y-0.5 cursor-pointer"
+        >
+          Book Decor Services
+        </button>
 
         {/* Mobile Menu Toggle */}
         <button
@@ -106,12 +98,12 @@ export default function Navbar({ openServices }) {
           ))}
           <button
             onClick={() => {
-              setMenuOpen(false)
-              openServices()
+              setMenuOpen(false);
+              openServices();
             }}
             className="block w-full text-center px-5 py-2.5 text-sm font-semibold bg-orange-500 text-white rounded-xl mt-2"
           >
-            Book Serivces
+            Book Services
           </button>
         </div>
       </div>

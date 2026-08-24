@@ -9,49 +9,54 @@ import Footer from './components/Footer'
 import GiftinGuruDecorations from './components/Giftingurudecorations'
 import VisitOurStores from './components/VisitOurStore'
 import PrivacyPolicy from './components/Privacy-Policy'
+import ContactModal from './components/ContactModel'
 
 import { useEffect, useState } from 'react'
 import TermsConditions from "./components/Terms-Conditions";
+import Decorations from "./components/Decorations";
 
 function AppContent() {
-  const [openServiceModal, setOpenServiceModal] = useState(false)
+  const [openServiceModal, setOpenServiceModal] = useState(false);
   const location = useLocation();
+
+  const handleOpen = () => {
+    setOpenServiceModal(true);
+  };
+
+  const handleClose = () => {
+    setOpenServiceModal(false);
+  };
 
   useEffect(() => {
     if (location.state?.scrollTo) {
       const id = location.state.scrollTo;
 
-      const scrollToSection = () => {
+      // Wait until the home page is rendered
+      setTimeout(() => {
         const el = document.getElementById(id);
 
         if (el) {
           const yOffset = -80;
           const y =
-            el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            el.getBoundingClientRect().top +
+            window.pageYOffset +
+            yOffset;
 
-          window.scrollTo({ top: y, behavior: "smooth" });
-        } else {
-          setTimeout(scrollToSection, 100);
+          window.scrollTo({
+            top: y,
+            behavior: "smooth",
+          });
         }
-      };
-
-      scrollToSection();
+      }, 100);
     } else {
-      window.scrollTo(0, 0);
+      // Normal route change → go to top
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "instant",
+      });
     }
-    if (location.state?.openService) {
-      setOpenServiceModal(true);
-    } else {
-      setOpenServiceModal(false);
-    }
-
-  }, [location]);
-  const handleOpen = () => {
-    setOpenServiceModal(false) // reset
-    setTimeout(() => {
-      setOpenServiceModal(true)
-    }, 50)
-  }
+  }, [location.pathname, location.state]);
 
   return (
     <>
@@ -59,28 +64,37 @@ function AppContent() {
 
       <div className="font-sans bg-white text-gray-900 overflow-x-hidden">
         <Routes>
-          <Route path="/" element={
-            <>
-              <Hero />
-              <CTA />
-              <Features />
-              <GiftinGuruDecorations openFromNavbar={openServiceModal} />
-              <VisitOurStores />
-              <Testimonials />
-            </>
-          } />
+          <Route
+            path="/"
+            element={
+              <>
+                <Hero />
+                <CTA />
+                <Features />
+                <GiftinGuruDecorations onBookService={handleOpen} />
+                <VisitOurStores />
+                <Testimonials />
+              </>
+            }
+          />
+
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-conditions" element={<TermsConditions />} />
+          <Route path="/decorations" element={<Decorations />} />
         </Routes>
       </div>
 
       <Footer />
+
+      {/* GLOBAL MODAL */}
+      {openServiceModal && (
+        <ContactModal onClose={handleClose} />
+      )}
     </>
-  )
+  );
 }
 
 
-// 👉 OUTER WRAPPER
 export default function App() {
   return (
     <BrowserRouter>

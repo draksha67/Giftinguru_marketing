@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const gallery = {
     birthday: [
@@ -20,10 +21,10 @@ const gallery = {
         { id: 18, src: "src/assets/wed5.jpeg", alt: "Wedding reception decor" },
     ],
     custom: [
-        { id: 20, src: "src/assets/custom1.jpeg", alt: "Custom event hall setup" },
-        { id: 21, src: "src/assets/custom2.jpeg", alt: "Custom theme decoration" },
-        { id: 22, src: "src/assets/custom3.jpeg", alt: "Custom event stage" },
-        { id: 23, src: "src/assets/custom4.jpeg", alt: "Custom event lighting" },
+        { id: 20, src: "src/assets/custom5.jpeg", alt: "Custom event hall setup" },
+        { id: 21, src: "src/assets/custom6.jpeg", alt: "Custom theme decoration" },
+        { id: 22, src: "src/assets/custom7.jpeg", alt: "Custom event stage" },
+        { id: 23, src: "src/assets/custom8.jpeg", alt: "Custom event lighting" },
     ],
 };
 
@@ -34,16 +35,10 @@ const CATEGORIES = [
     { key: "custom", emoji: "✨", label: "Premium", title: "Custom Event Setup", bg: "#F4FFF4", accent: "#22c55e" },
 ];
 
-export default function GiftinGuruDecorations({ openFromNavbar }) {
+export default function GiftinGuruDecorations({onBookService}) {
+    const navigate = useNavigate();
     const [selected, setSelected] = useState("birthday");
     const [lightbox, setLightbox] = useState(null);
-    const [showContact, setShowContact] = useState(false);
-
-    useEffect(() => {
-        if (openFromNavbar) {
-            setShowContact(true)
-        }
-    }, [openFromNavbar])
 
     const activeCat = CATEGORIES.find(c => c.key === selected);
     const activePhotos = gallery[selected] || [];
@@ -170,7 +165,7 @@ export default function GiftinGuruDecorations({ openFromNavbar }) {
                     </p>
 
                     <button
-                        onClick={() => setShowContact(true)}
+                        onClick={onBookService}
                         style={{
                             background: "#f97316", color: "#fff", border: "none",
                             borderRadius: "10px", padding: "11px 24px",
@@ -329,6 +324,43 @@ export default function GiftinGuruDecorations({ openFromNavbar }) {
                 </div>
             </div>
 
+            {/* ── View All Services ── */}
+            <div style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "28px",
+            }}>
+                <button
+                    onClick={() => navigate("/decorations")}
+                    style={{
+                        background: "#111827",
+                        color: "#fff",
+                        border: "none",
+                        borderRadius: "10px",
+                        padding: "12px 28px",
+                        fontSize: "14px",
+                        fontWeight: "700",
+                        fontFamily: "inherit",
+                        cursor: "pointer",
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "8px",
+                        boxShadow: "0 6px 18px rgba(17,24,39,.18)",
+                        transition: "all .2s ease",
+                    }}
+                    onMouseEnter={e => {
+                        e.currentTarget.style.background = "#f97316";
+                        e.currentTarget.style.transform = "translateY(-2px)";
+                    }}
+                    onMouseLeave={e => {
+                        e.currentTarget.style.background = "#111827";
+                        e.currentTarget.style.transform = "translateY(0)";
+                    }}
+                >
+                    View All Services →
+                </button>
+            </div>
+
             {/* ── Lightbox ── */}
             {lightbox && (
                 <div
@@ -377,65 +409,6 @@ export default function GiftinGuruDecorations({ openFromNavbar }) {
                             >
                                 Close ✕
                             </button>
-                        </div>
-                    </div>
-                </div>
-            )}
-
-            {/* ── Contact Modal ── */}
-            {showContact && (
-                <div
-                    className="contact-modal-bg"
-                    onClick={() => setShowContact(false)}
-                    style={{
-                        position: "fixed", inset: 0, zIndex: 1100,
-                        background: "rgba(0,0,0,.55)",
-                        display: "flex", alignItems: "center", justifyContent: "center", padding: "16px",
-                    }}
-                >
-                    <div
-                        className="contact-modal-box"
-                        onClick={e => e.stopPropagation()}
-                        style={{
-                            background: "#fff", borderRadius: "20px",
-                            padding: "32px 28px 24px", maxWidth: "360px", width: "100%",
-                            textAlign: "center", boxShadow: "0 24px 64px rgba(0,0,0,.22)",
-                            position: "relative", fontFamily: "'Poppins', 'Segoe UI', sans-serif",
-                        }}
-                    >
-                        <button
-                            onClick={() => setShowContact(false)}
-                            style={{
-                                position: "absolute", top: "12px", right: "14px",
-                                background: "#f3f4f6", border: "none", borderRadius: "8px",
-                                width: "28px", height: "28px", fontSize: "14px",
-                                cursor: "pointer", color: "#6b7280",
-                                display: "flex", alignItems: "center", justifyContent: "center",
-                            }}
-                        >✕</button>
-
-                        <div style={{ fontSize: "40px", marginBottom: "12px" }}>🎀</div>
-
-                        <h3 style={{ fontSize: "18px", fontWeight: "800", color: "#111827", margin: "0 0 8px" }}>
-                            Contact Us to Plan<br />Your Event With Us
-                        </h3>
-                        <p style={{ color: "#6b7280", fontSize: "13px", lineHeight: 1.65, margin: "0 0 18px" }}>
-                            Reach out to our team and let's bring your celebration to life!
-                        </p>
-
-                        <div style={{
-                            background: "#FFF4EC", border: "1.5px solid #fed7aa",
-                            borderRadius: "12px", padding: "14px 16px",
-                        }}>
-                            <p style={{
-                                fontSize: "11px", color: "#9ca3af", margin: "0 0 5px",
-                                fontWeight: "600", letterSpacing: ".05em", textTransform: "uppercase",
-                            }}>
-                                📞 Call / WhatsApp
-                            </p>
-                            <p style={{ fontSize: "24px", fontWeight: "800", color: "#f97316", margin: 0, letterSpacing: "1px" }}>
-                                +91 92208 96622
-                            </p>
                         </div>
                     </div>
                 </div>

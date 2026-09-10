@@ -1,5 +1,5 @@
-import { Gift, MapPin, Phone, Mail, Instagram, Facebook, Youtube, Heart } from 'lucide-react'
-import logo2 from '../assets/logo2.png'
+import { MapPin, Phone, Mail, Instagram, Facebook, Youtube, Heart } from 'lucide-react'
+import logo2 from '/logo2.png'
 import { Link } from "react-router-dom";
 import { useNavigate, useLocation } from "react-router-dom";
 

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
-import { ArrowRight, MapPin, Sparkles, Star } from 'lucide-react'
-import sadhuLogo from '../assets/sadhuLogo.png'
+import { MapPin, Sparkles, Star } from 'lucide-react'
+import sadhuLogo from '/sadhuLogo.png'
 
 const FloatingBadge = ({ className, children }) => (
   <div className={`absolute bg-white rounded-2xl shadow-xl shadow-gray-200/80 px-4 py-3 flex items-center gap-2.5 border border-gray-100 ${className}`}>

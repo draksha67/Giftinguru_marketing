@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 const services = [
     {
@@ -8,21 +8,21 @@ const services = [
         emoji: "🎂",
         bg: "#FFF7ED",
         images: [
-            "/src/assets/birth1.jpeg",
-            "/src/assets/birth7.jpeg",
-            "/src/assets/birth3.jpeg",
-            "/src/assets/birth4.jpeg",
-            "/src/assets/birth5.jpeg",
-            "/src/assets/birth6.jpeg",
-            "/src/assets/birth8.jpeg",
-            "/src/assets/birth9.jpeg",
-            "/src/assets/birth10.jpeg",
-            "/src/assets/birth11.jpeg",
-            "/src/assets/birth12.jpeg",
-            "/src/assets/birth13.jpeg",
-            "/src/assets/birth2.jpeg",
-            "/src/assets/birth14.jpeg",
-            "/src/assets/birth15.jpeg"
+            "/birth1.jpeg",
+            "/birth7.jpeg",
+            "/birth3.jpeg",
+            "/birth4.jpeg",
+            "/birth5.jpeg",
+            "/birth6.jpeg",
+            "/birth8.jpeg",
+            "/birth9.jpeg",
+            "/birth10.jpeg",
+            "/birth11.jpeg",
+            "/birth12.jpeg",
+            "/birth13.jpeg",
+            "/birth2.jpeg",
+            "/birth14.jpeg",
+            "/birth15.jpeg"
         ],
     },
     {
@@ -32,11 +32,11 @@ const services = [
         emoji: "💕",
         bg: "#FFF1F6",
         images: [
-            "/src/assets/ann1.jpeg",
-            "/src/assets/ann2.jpeg",
-            "/src/assets/ann3.jpeg",
-            "/src/assets/ann4.jpeg",
-            "/src/assets/ann5.jpeg",
+            "/ann1.jpeg",
+            "/ann2.jpeg",
+            "/ann3.jpeg",
+            "/ann4.jpeg",
+            "/ann5.jpeg",
         ],
     },
     {
@@ -46,10 +46,10 @@ const services = [
         emoji: "💍",
         bg: "#FFFBEB",
         images: [
-            "/src/assets/wed1.jpeg",
-            "/src/assets/wed2.jpeg",
-            "/src/assets/wed3.jpeg",
-            "/src/assets/wed5.jpeg",
+            "/wed1.jpeg",
+            "/wed2.jpeg",
+            "/wed3.jpeg",
+            "/wed5.jpeg",
         ],
     },
     {
@@ -59,12 +59,12 @@ const services = [
         emoji: "✨",
         bg: "#F0FDF4",
         images: [
-            "/src/assets/custom5.jpeg",
-            "/src/assets/custom6.jpeg",
-            "/src/assets/custom7.jpeg",
-            "/src/assets/custom8.jpeg",
-            "/src/assets/custom9.jpeg",
-            "/src/assets/custom10.jpeg",
+            "/custom5.jpeg",
+            "/custom6.jpeg",
+            "/custom7.jpeg",
+            "/custom8.jpeg",
+            "/custom9.jpeg",
+            "/custom10.jpeg",
         ],
     },
 ];
@@ -75,19 +75,19 @@ const services = [
 //         id: 1,
 //         title: "Birthday Decoration Setup",
 //         category: "Birthday",
-//         src: "/src/assets/video1.mp4",
+//         src: "/video1.mp4",
 //     },
 //     {
 //         id: 2,
 //         title: "Anniversary Decoration",
 //         category: "Anniversary",
-//         src: "/src/assets/video2.mp4",
+//         src: "/video2.mp4",
 //     },
 //     {
 //         id: 3,
 //         title: "Wedding Decoration Setup",
 //         category: "Wedding",
-//         src: "/src/assets/video3.mp4",
+//         src: "/video3.mp4",
 //     },
 // ];
 

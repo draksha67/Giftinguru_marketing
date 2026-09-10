@@ -1,30 +1,30 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const gallery = {
     birthday: [
-        { id: 1, src: "src/assets/birth1.jpeg", alt: "Birthday balloon setup" },
-        { id: 2, src: "src/assets/birth2.jpeg", alt: "Birthday cake decor" },
-        { id: 3, src: "src/assets/birth3.jpeg", alt: "Birthday party decoration" },
-        { id: 4, src: "src/assets/birth4.jpeg", alt: "Birthday centerpiece" },
+        { id: 1, src: "/birth1.jpeg", alt: "Birthday balloon setup" },
+        { id: 2, src: "/birth2.jpeg", alt: "Birthday cake decor" },
+        { id: 3, src: "/birth3.jpeg", alt: "Birthday party decoration" },
+        { id: 4, src: "/birth4.jpeg", alt: "Birthday centerpiece" },
     ],
     anniversary: [
-        { id: 7, src: "src/assets/ann1.jpeg", alt: "Anniversary rose decor" },
-        { id: 8, src: "src/assets/ann2.jpeg", alt: "Anniversary candle setup" },
-        { id: 9, src: "src/assets/ann3.jpeg", alt: "Anniversary table decor" },
-        { id: 10, src: "src/assets/ann5.jpeg", alt: "Anniversary floral arrangement" },
+        { id: 7, src: "/ann1.jpeg", alt: "Anniversary rose decor" },
+        { id: 8, src: "/ann2.jpeg", alt: "Anniversary candle setup" },
+        { id: 9, src: "/ann3.jpeg", alt: "Anniversary table decor" },
+        { id: 10, src: "/ann5.jpeg", alt: "Anniversary floral arrangement" },
     ],
     function: [
-        { id: 15, src: "src/assets/wed1.jpeg", alt: "Wedding lights decor" },
-        { id: 16, src: "src/assets/wed2.jpeg", alt: "Wedding flower decor" },
-        { id: 17, src: "src/assets/wed3.jpeg", alt: "Wedding decoration setup" },
-        { id: 18, src: "src/assets/wed5.jpeg", alt: "Wedding reception decor" },
+        { id: 15, src: "/wed1.jpeg", alt: "Wedding lights decor" },
+        { id: 16, src: "/wed2.jpeg", alt: "Wedding flower decor" },
+        { id: 17, src: "/wed3.jpeg", alt: "Wedding decoration setup" },
+        { id: 18, src: "/wed5.jpeg", alt: "Wedding reception decor" },
     ],
     custom: [
-        { id: 20, src: "src/assets/custom5.jpeg", alt: "Custom event hall setup" },
-        { id: 21, src: "src/assets/custom6.jpeg", alt: "Custom theme decoration" },
-        { id: 22, src: "src/assets/custom7.jpeg", alt: "Custom event stage" },
-        { id: 23, src: "src/assets/custom8.jpeg", alt: "Custom event lighting" },
+        { id: 20, src: "/custom5.jpeg", alt: "Custom event hall setup" },
+        { id: 21, src: "/custom6.jpeg", alt: "Custom theme decoration" },
+        { id: 22, src: "/custom7.jpeg", alt: "Custom event stage" },
+        { id: 23, src: "/custom8.jpeg", alt: "Custom event lighting" },
     ],
 };
 

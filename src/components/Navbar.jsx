@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Gift, Menu, X } from 'lucide-react'
-import logo2 from '../assets/logo2.png'
+import logo2 from '/logo2.png'
 import { useNavigate, useLocation } from "react-router-dom";
 
 export default function Navbar({ openServices }) {

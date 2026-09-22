@@ -11,10 +11,10 @@ const stores = [
     timings: "Mon–Sun: 10:00 AM – 9:00 PM",
     mapLink: "https://maps.google.com/?q=GiftinGuru+Indirapuram+Ghaziabad",
     photos: [
-      "src/assets/TestimonialINDRA.jpg",
-      "src/assets/Innp.webp",
-      "src/assets/Innp2.webp",
-      "src/assets/Innp3.webp",
+      "/TestimonialINDRA.jpg",
+      "/Innp.webp",
+      "/Innp2.webp",
+      "/Innp3.webp",
     ],
   },
   {
@@ -25,10 +25,10 @@ const stores = [
     timings: "Mon–Sun: 10:00 AM – 9:00 PM",
     mapLink: "https://maps.google.com/?q=GiftinGuru+Shakti+Khand+Ghaziabad",
     photos: [
-      "src/assets/TestimonialSHAKTI.jpg",
-      "src/assets/Shakti.webp",
-      "src/assets/Shakti2.webp",
-      "src/assets/Shakti3.webp",
+      "/TestimonialSHAKTI.jpg",
+      "/Shakti.webp",
+      "/Shakti2.webp",
+      "/Shakti3.webp",
     ],
   },
   {
@@ -39,10 +39,10 @@ const stores = [
     timings: "Mon–Sun: 10:00 AM – 9:00 PM",
     mapLink: "https://maps.google.com/?q=GiftinGuru+Siddharth+Vihar+Ghaziabad",
     photos: [
-      "src/assets/TestimonialSIDDHARTH.jpg",
-      "src/assets/Sidd.webp",
-      "src/assets/Sidd2.webp",
-      "src/assets/Sidd3.webp",
+      "/TestimonialSiddharth.jpg",
+      "/Sidd.webp",
+      "/Sidd2.webp",
+      "/Sidd3.webp",
     ],
   },
 ];
